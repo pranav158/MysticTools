@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="color-scheme" content="dark">
+<title>MysticTools — Local PDF & Image Studio</title>
+<link rel="stylesheet" href="styles.css">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><defs><linearGradient id='g' x1='0' y1='0' x2='1' y2='1'><stop offset='0' stop-color='%23a78bfa'/><stop offset='1' stop-color='%237d5ff0'/></linearGradient></defs><rect width='100' height='100' rx='24' fill='url(%23g)'/><path d='M50 18 L57 43 L82 50 L57 57 L50 82 L43 57 L18 50 L43 43 Z' fill='white'/></svg>">
+</head>
+<body>
+  <header>
+    <div class="brand">
+      <div class="logo"><svg viewBox="0 0 100 100" width="22" height="22"><path d="M50 12 L58 42 L88 50 L58 58 L50 88 L42 58 L12 50 L42 42 Z" fill="white"/></svg></div>
+      <div class="brand-text">
+        <span class="brand-name">MysticTools</span>
+        <span class="brand-sub">Local PDF &amp; Image Studio</span>
+      </div>
+    </div>
+    <div class="privacy-pill" title="All processing happens on this machine. The server never sends your files anywhere.">
+      <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l8 4v6c0 5-3.5 8.5-8 10-4.5-1.5-8-5-8-10V6z"/><path d="M9 12l2 2 4-4"/></svg>
+      <span>100% local — nothing leaves this device</span>
+    </div>
+  </header>
+
+  <nav class="tabs">
+    <button id="tab-pdf" class="tab on">PDF Tools</button>
+    <button id="tab-image" class="tab">Image Tools</button>
+  </nav>
+
+  <main id="grid"></main>
+
+  <section id="toolView" class="hidden">
+    <div class="tool-head">
+      <button id="backBtn" class="back-btn">
+        <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg>
+        All tools
+      </button>
+      <div class="tool-title-wrap">
+        <span class="tool-icon" id="toolIcon"></span>
+        <div>
+          <h1 id="toolName"></h1>
+          <p id="toolDesc"></p>
+        </div>
+      </div>
+    </div>
+
+    <div class="tool-body">
+      <div class="tool-left">
+        <div id="dropzone" class="dropzone">
+          <input type="file" id="fileInput" hidden multiple>
+          <svg viewBox="0 0 24 24" width="34" height="34" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 16V4m0 0L7 9m5-5l5 5"/><path d="M4 15v3a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-3"/></svg>
+          <p class="dz-title">Drop files here</p>
+          <p class="dz-sub" id="dzSub">or click to browse</p>
+        </div>
+        <div id="fileList"></div>
+        <div id="options"></div>
+      </div>
+      <div class="tool-right">
+        <div class="panel" id="previewPanel">
+          <div class="panel-title">Preview</div>
+          <div id="previewBox" class="preview-box">
+            <div class="empty-hint" id="previewHint">Select a file to see it here</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="action-bar">
+      <div id="statsBar" class="stats hidden">
+        <div class="stats-row">
+          <span class="stat old" id="statOld"></span>
+          <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14m0 0l-5-5m5 5l-5 5"/></svg>
+          <span class="stat new" id="statNew"></span>
+          <span class="stat-pct" id="statPct"></span>
+        </div>
+        <div class="savings-bar"><div class="savings-fill" id="savingsFill"></div></div>
+      </div>
+      <button id="processBtn" class="process-btn">
+        <span id="processLabel">Process</span>
+        <svg id="spinner" class="spinner hidden" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"><path d="M12 2a10 10 0 0 1 10 10"/></svg>
+      </button>
+      <button id="downloadBtn" class="download-btn hidden">
+        <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4v12m0 0l-5-5m5 5l5-5"/><path d="M4 19h16"/></svg>
+        Save file
+      </button>
+    </div>
+  </section>
+
+  <footer>
+    MysticTools · private by design — files are processed in memory and deleted after download
+  </footer>
+
+  <div id="toasts"></div>
+  <script src="app.js"></script>
+</body>
+</html>
