@@ -1,0 +1,31 @@
+{
+  "name": "mystictools",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Private PDF & image studio — 40 tools that run entirely in your browser; files are never uploaded",
+  "author": "MysticFox <contact@mysticfox.dev>",
+  "license": "AGPL-3.0-or-later",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/pranav158/MysticTools.git"
+  },
+  "type": "module",
+  "scripts": {
+    "vendor": "node scripts/vendor.mjs",
+    "start": "node scripts/serve.mjs",
+    "test": "node tests/browser.test.mjs",
+    "deploy": "npx wrangler deploy"
+  },
+  "devDependencies": {
+    "@fontsource-variable/caveat": "5.3.0",
+    "@fontsource-variable/figtree": "5.3.0",
+    "@fontsource-variable/fraunces": "5.3.0",
+    "@tesseract.js-data/eng": "1.0.0",
+    "@tesseract.js-data/hin": "1.0.0",
+    "libheif-js": "1.23.5",
+    "mupdf": "1.28.1",
+    "playwright-core": "1.64.0",
+    "tesseract.js": "7.0.0",
+    "tesseract.js-core": "7.0.0"
+  }
+}
