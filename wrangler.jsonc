@@ -1,0 +1,9 @@
+// Cloudflare Workers, static assets only (free plan). There is no server code:
+// every file is processed in the visitor's browser.
+{
+  "name": "mystictools",
+  "compatibility_date": "2026-10-01",
+  "assets": {
+    "directory": "./static"
+  }
+}
